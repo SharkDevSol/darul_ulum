@@ -120,8 +120,8 @@ if (process.env.NODE_ENV === 'production' && process.env.HTTPS_ENABLED === 'true
 const io = new Server(server, {
   cors: {
     origin: process.env.NODE_ENV === 'production'
-      ? [process.env.FRONTEND_URL || 'https://iqrab3.skoolific.com']
-      : ['http://localhost:3000', 'http://localhost:5173', 'http://localhost:5000'],
+      ? [process.env.FRONTEND_URL || 'https://darul_ulum.skoolific.com']
+      : ['http://localhost:3000', 'http://localhost:5173', 'http://localhost:5050'],
     methods: ['GET', 'POST'],
     allowedHeaders: ['Authorization'],
     credentials: true
@@ -203,8 +203,8 @@ app.use(securityHeaders);
 
 // 3. CORS configuration
 const allowedOrigins = process.env.NODE_ENV === 'production' 
-  ? [process.env.FRONTEND_URL || 'https://iqrab3.skoolific.com']  // Production domain
-  : ['http://localhost:3000', 'http://localhost:5173', 'http://localhost:5000'];
+  ? [process.env.FRONTEND_URL || 'https://darul_ulum.skoolific.com']  // Production domain
+  : ['http://localhost:3000', 'http://localhost:5173', 'http://localhost:5050'];
 
 app.use(cors({
   origin: (origin, callback) => {
@@ -539,7 +539,7 @@ const attendanceSystemInitializer = require('./services/attendanceSystemInitiali
   }
 
   // Start server after setup complete
-  const PORT = process.env.PORT || 5000;
+  const PORT = process.env.PORT || 5050;
   const HOST = '0.0.0.0'; // Listen on all network interfaces for mobile access
   server.listen(PORT, HOST, () => {
     console.log(`Server running on ${HOST}:${PORT}`);
